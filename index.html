@@ -4,115 +4,188 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <title>N3-create-account</title>
+    <title>Create-Account</title>
+    <style>
+      /* ✅ მენიუ ნაგულისხმევად დამალულია */
+      #menu1 {
+          display: none;
+      }
+
+      /*  checkbox hack - როცა checkbox მონიშნულია, მენიუ გამოჩნდება */
+      #menu-toggle:checked ~ #menu1 {
+          display: block;
+          position: absolute;
+          top: 60px; /* ბურგერის ქვემოთ */
+          right: 10px; /* მარჯვენა მხარეს */
+          width: 200px;
+          background-color: black;
+          padding: 10px;
+          border-radius: 8px;
+      }
+  </style>
   </head>
-  <body class="bg-[#2B2B2B]">
-    <header class="flex justify-between  text-md  px-4 py-4">
-      <div class="flex flex-row gap-4 items-center">
-        <div><img src="./images/Storefront.png" /></div>
-        <div><img src="./images/NFT Marketplace.png" /></div>
-      </div>
-      <nav class="flex gap-8 text-white">
-        <ul class="flex space-x-6 items-center">
-          <li> <a href="#" class="hover:underline">Marketplace</a></li>
+  <body class="bg-[#2B2B2B]">  
+    
+<header class="flex justify-between text-md px-4 py-4 relative bg-black">
+  <div class="flex flex-row gap-4 items-center">
+      <div><img src="./images/Storefront.png" /></div>
+      <div><img src="./images/NFT Marketplace.png" /></div>
+  </div>
+
+  <!-------    Burger  -->
+  <div class="sm:hidden relative">
+      <input type="checkbox" id="menu-toggle" class="hidden">
+      <label for="menu-toggle" class="text-3xl cursor-pointer text-white">&#9776;</label>
+
+      <!--  მობილური მენიუ -->
+      <nav id="menu1" class="absolute hidden sm:hidden right-0 w-48 bg-black p-4 rounded-lg">
+          <ul class="flex flex-col space-y-4 text-white">
+              <li><a href="#" class="hover:underline">Marketplace</a></li>
+              <li><a href="#" class="hover:underline">Rankings</a></li>
+              <li><a href="#" class="hover:text-purple-500 hover:underline">Connect a wallet</a></li>
+              <li>
+                  <button class="bg-[#A259FF] p-3 hover:bg-purple-600 rounded-2xl px-6 flex flex-row items-center gap-2">
+                      <img src="./images/User.png" />Sign Up
+                  </button>
+              </li>
+          </ul>
+      </nav>
+  </div>
+
+  <!--  Desktop ვერსიის მენიუ -->
+  <nav class="hidden sm:block">
+      <ul class="flex space-x-6 items-center text-white">
+          <li><a href="#" class="hover:underline">Marketplace</a></li>
           <li><a href="#" class="hover:underline">Rankings</a></li>
           <li><a href="#" class="hover:text-purple-500 hover:underline">Connect a wallet</a></li>
-        </ul>
-        <button class="bg-[#A259FF] p-3 hover:bg-purple-600 rounded-2xl px-6 flex flex-row items-center gap-2">
-            <img src="./images/User.png" class="">Sign Up
-        </button>
-      </nav>
-    </header>
+          <li>
+              <button class="bg-[#A259FF] p-3 hover:bg-purple-600 rounded-2xl px-6 flex flex-row items-center gap-2">
+                  <img src="./images/User.png" />Sign Up
+              </button>
+          </li>
+      </ul>
+  </nav>
+</header>
+  
 
-    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 items-center ">
-        <!-- Left Image Section -->
-        <div>
-          <img src="./images/Image Placeholder.png" alt="./images/placeholder" class="w-full transition-opacity  opacity-80 hover:opacity-100">
-        </div>
-    
-        <!-- Right Form Section -->
-        <div class="text-start sm:px-6 md:pr-24 text-white">
-          <h2 class="text-3xl font-bold mb-4">Create Account</h2>
-          <p class=" mb-8">Welcome! Enter Your Details And Start <br> Creating, Collecting And Selling NFTs.</p>
-          <form class="space-y-4 ">
-            <div class="relative ">
-                <img src="./images/User-input.png" class="absolute top-1/2 left-4 transform -translate-y-1/2">
-                <input 
-                  type="text"
-                  placeholder="Username"
-                  class="w-full pl-12 px-4 py-3 rounded-full bg-white text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                />
-            </div>
-            
+    <section
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 items-center"
+    >
+      <!-- Left Image Section -->
+      <div>
+        <img
+          src="./images/Image Placeholder.png" alt="./images/placeholder" class="w-full"/>
+      </div>
+
+      <!-- Right Form Section -->
+      <div class="text-start px-8  text-white">
+        <h2 class="text-5xl font-bold mb-4">Create Account</h2>
+        <p class="mb-8 text-xl">
+          Welcome! Enter Your Details And Start <br />
+          Creating, Collecting And Selling NFTs.
+        </p>
+        <form class="space-y-4 w-full md:w-3/5 pb-8">
+          <div class="relative">
+            <img
+              src="./images/User-input.png"
+              class="absolute top-1/2 left-4 transform -translate-y-1/2"
+            />
+            <input
+              type="text"
+              placeholder="Username"
+              class="w-full pl-12 px-5 py-4 rounded-full bg-white text-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+          </div>
+          <div class="relative">
+            <img
+              src="./images/email-icon.png"
+              class="absolute top-1/2 left-4 transform -translate-y-1/2"
+            />
             <input
               type="email"
               placeholder="Email Address"
-              class="w-full px-4 py-3 rounded-full bg-white text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              class="w-full pl-12 px-5 py-4 rounded-full bg-white text-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+          </div>
+          <div class="relative">
+            <img
+              src="./images/LockKey.png"
+              class="absolute top-1/2 left-4 transform -translate-y-1/2"
             />
             <input
               type="password"
               placeholder="Password"
-              class="w-full px-4 py-3 rounded-full bg-white text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              class="w-full pl-12 px-5 py-4 rounded-full bg-white text-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+          </div>
+          <div class="relative">
+            <img
+              src="./images/LockKey.png"
+              class="absolute top-1/2 left-4 transform -translate-y-1/2"
             />
             <input
               type="password"
               placeholder="Confirm Password"
-              class="w-full px-4 py-3 rounded-full bg-white text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              class="w-full pl-12 px-5 py-4 rounded-full bg-white text-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
-            <button class="w-full bg-[#A259FF] py-3 rounded-full text-white font-semibold hover:bg-purple-600">
-              Create account
-            </button>
-          </form>
-        </div>
-      </section>
-    
-      <!-- Footer -->
-      <footer class="bg-gray-800 text-gray-400 px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Left Section -->
-          <div>
-            <h3 class="text-lg font-bold text-white mb-4">NFT Marketplace</h3>
-            <p class="text-sm">
-              NFT marketplace UI created with Aatma for Figma. Join our community.
-            </p>
-            <div class="flex gap-4 mt-4">
-              <img src="./images/icon-footer-1.png" alt="Twitter" >
-              <img src="./images/icon-footer-2.png" alt="Facebook">
-              <img src="./images/icon-footer-3.png" alt="YouTube">
-            </div>
           </div>
-    
-          <!-- Center Section -->
-          <div>
-            <h3 class="text-lg font-bold text-white mb-4">Explore</h3>
-            <ul class="space-y-2">
-              <li><a href="#" class="hover:underline">Marketplace</a></li>
-              <li><a href="#" class="hover:underline">Rankings</a></li>
-              <li><a href="#" class="hover:underline">Connect a wallet</a></li>
-            </ul>
-          </div>
-    
-          <!-- Right Section -->
-          <div>
-            <h3 class="text-lg font-bold text-white mb-4">Join Our Weekly Digest</h3>
-            <p class="text-sm mb-4">Get exclusive promotions & updates straight to your inbox.</p>
-            <div class="flex items-center bg-white rounded-full shadow-md overflow-hidden">
-              <input
-                type="email"
-                placeholder="Enter your email here"
-                class="flex-grow px-4 py-2 text-gray-700 outline-none"
-              />
-              <button class="sm:hidden md:visible bg-purple-500 text-white px-6 py-2 font-semibold hover:bg-purple-600">
-                Subscribe
-              </button>
-              <button class="md:hidden">
-                <img src="./images/Burger-Menu.png" alt="Menu" class="w-6 h-6">
-              </button>
-            </div>
+
+          <button
+            class="w-full bg-[#A259FF] py-5 mt-4 rounded-full text-white font-semibold hover:bg-purple-600"
+          >
+            Create account
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 px-8 pt-12 pb-0 text-gray-400">
+      <div class="border-bg-gray-50 grid grid-cols-1 gap-8 border-b-1 pb-4 md:grid-cols-3">
+        <!-- Left Section -->
+        <div>
+          <h3 class="mb-4 text-lg font-bold text-white">NFT Marketplace</h3>
+          <p class="text-sm">NFT marketplace UI created with Aatma for Figma. Join our community.</p>
+          <div class="mt-4 flex gap-4">
+            <img src="./images/icon-footer-1.png" alt="Twitter" />
+            <img src="./images/icon-footer-2.png" alt="Facebook" />
+            <img src="./images/icon-footer-3.png" alt="YouTube" />
+            <img src="./images/icon-footer-4.png" alt="Twitter" />
           </div>
         </div>
-      </footer>
+    
+        <!-- Center Section -->
+        <div>
+          <h3 class="mb-4 text-lg font-bold text-white">Explore</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:underline">Marketplace</a></li>
+            <li><a href="#" class="hover:underline">Rankings</a></li>
+            <li><a href="#" class="hover:underline">Connect a wallet</a></li>
+          </ul>
+        </div>
+    
+        <!-- Right Section -->
+        <div>
+          <h3 class="mb-4 text-lg font-bold text-white">Join Our Weekly Digest</h3>
+          <p class="mb-4 text-sm">Get exclusive promotions & updates straight to your inbox.</p>
+          <div class="relative w-4/5 items-center overflow-hidden rounded-full bg-white shadow-md">
+            <input type="email" placeholder="Enter your email here" class="py-3 pl-12  text-gray-700 outline-none" />
+            <button id="btn-1"  class="absolute right-0 visible  rounded-full bg-purple-500 px-6 py-3 font-semibold text-white hover:bg-purple-600 md:visible lg:visible">Subscribe</button>
+          </div>
+          <button class="lg-hidden my-6 w-full flex items-center justify-center gap-2 rounded-full bg-purple-500 px-6 py-4 font-semibold text-white hover:bg-purple-600 sm:visible md:hidden lg:visible">
+            <img src="./images/EnvelopeSimple.png" class="ml-6" />
+            Subscribe
+          </button>
+        </div>
+      </div>
+      <div class="footer-frame pt-4 pb-5">
+        <p>Ⓒ NFT Market. Use this template freely.</p>
+      </div>
+    </footer>
   </body>
 </html>
