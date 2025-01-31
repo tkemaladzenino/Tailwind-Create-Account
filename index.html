@@ -8,82 +8,111 @@
       href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1E40AF",
+            },
+          },
+        },
+      };
+    </script>
     <title>Create-Account</title>
     <style>
-      /* ✅ მენიუ ნაგულისხმევად დამალულია */
+      /* მენიუ ნაგულისხმევად დამალულია */
       #menu1 {
-          display: none;
+        display: none;
       }
 
       /*  checkbox hack - როცა checkbox მონიშნულია, მენიუ გამოჩნდება */
       #menu-toggle:checked ~ #menu1 {
-          display: block;
-          position: absolute;
-          top: 60px; /* ბურგერის ქვემოთ */
-          right: 10px; /* მარჯვენა მხარეს */
-          width: 200px;
-          background-color: black;
-          padding: 10px;
-          border-radius: 8px;
+        display: block;
+        position: absolute;
+        top: 60px; /* ბურგერის ქვემოთ */
+        right: 10px; /* მარჯვენა მხარეს */
+        width: 200px;
+        background-color: black;
+        padding: 10px;
+        border-radius: 8px;
       }
-  </style>
+    </style>
   </head>
-  <body class="bg-[#2B2B2B]">  
-    
-<header class="flex justify-between text-md px-4 py-4 relative bg-black">
-  <div class="flex flex-row gap-4 items-center">
-      <div><img src="./images/Storefront.png" /></div>
-      <div><img src="./images/NFT Marketplace.png" /></div>
-  </div>
+  <body class="bg-[#2B2B2B]">
+    <header class="flex justify-between text-md px-4 py-4 relative bg-black">
+      <div class="flex flex-row gap-4 items-center">
+        <div><img src="./images/Storefront.png" /></div>
+        <div><img src="./images/NFT Marketplace.png" /></div>
+      </div>
 
-  <!-------    Burger  -->
-  <div class="sm:hidden relative">
-      <input type="checkbox" id="menu-toggle" class="hidden">
-      <label for="menu-toggle" class="text-3xl cursor-pointer text-white">&#9776;</label>
+      <!-------    Burger  -->
+      <div class="md:hidden relative">
+        <input type="checkbox" id="menu-toggle" class="hidden" />
+        <label for="menu-toggle" class="text-3xl cursor-pointer text-white"
+          >&#9776;</label
+        >
 
-      <!--  მობილური მენიუ -->
-      <nav id="menu1" class="absolute hidden sm:hidden right-0 w-48 bg-black p-4 rounded-lg">
+        <!--  მობილური მენიუ -->
+        <nav
+          id="menu1"
+          class="absolute lg:hidden right-0 w-48 bg-black p-4 rounded-lg"
+        >
           <ul class="flex flex-col space-y-4 text-white">
-              <li><a href="#" class="hover:underline">Marketplace</a></li>
-              <li><a href="#" class="hover:underline">Rankings</a></li>
-              <li><a href="#" class="hover:text-purple-500 hover:underline">Connect a wallet</a></li>
-              <li>
-                  <button class="bg-[#A259FF] p-3 hover:bg-purple-600 rounded-2xl px-6 flex flex-row items-center gap-2">
-                      <img src="./images/User.png" />Sign Up
-                  </button>
-              </li>
+            <li><a href="#" class="hover:underline">Marketplace</a></li>
+            <li><a href="#" class="hover:underline">Rankings</a></li>
+            <li>
+              <a href="#" class="hover:text-purple-500 hover:underline"
+                >Connect a wallet</a
+              >
+            </li>
+            <li>
+              <button
+                class="bg-[#A259FF] p-3 hover:bg-purple-600 rounded-2xl px-6 flex flex-row items-center gap-2"
+              >
+                <img src="./images/User.png" />Sign Up
+              </button>
+            </li>
           </ul>
-      </nav>
-  </div>
+        </nav>
+      </div>
 
-  <!--  Desktop ვერსიის მენიუ -->
-  <nav class="hidden sm:block">
-      <ul class="flex space-x-6 items-center text-white">
+      <!--  Desktop ვერსიის მენიუ -->
+      <nav class="hidden md:block">
+        <ul class="flex space-x-6 items-center text-white">
           <li><a href="#" class="hover:underline">Marketplace</a></li>
           <li><a href="#" class="hover:underline">Rankings</a></li>
-          <li><a href="#" class="hover:text-purple-500 hover:underline">Connect a wallet</a></li>
           <li>
-              <button class="bg-[#A259FF] p-3 hover:bg-purple-600 rounded-2xl px-6 flex flex-row items-center gap-2">
-                  <img src="./images/User.png" />Sign Up
-              </button>
+            <a href="#" class="hover:text-purple-500 hover:underline"
+              >Connect a wallet</a
+            >
           </li>
-      </ul>
-  </nav>
-</header>
-  
+          <li>
+            <button
+              class="bg-[#A259FF] p-3 hover:bg-purple-600 rounded-2xl px-6 flex flex-row items-center gap-2"
+            >
+              <img src="./images/User.png" />Sign Up
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
+    <!--------main section----------->
     <section
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 items-center"
     >
       <!-- Left Image Section -->
       <div>
         <img
-          src="./images/Image Placeholder.png" alt="./images/placeholder" class="w-full"/>
+          src="./images/Image Placeholder.png"
+          alt="./images/placeholder"
+          class="w-full"
+        />
       </div>
 
       <!-- Right Form Section -->
-      <div class="text-start px-8  text-white">
+      <div class="text-start px-8 text-white">
         <h2 class="text-5xl font-bold mb-4">Create Account</h2>
         <p class="mb-8 text-xl">
           Welcome! Enter Your Details And Start <br />
@@ -146,11 +175,15 @@
 
     <!-- Footer -->
     <footer class="bg-gray-800 px-8 pt-12 pb-0 text-gray-400">
-      <div class="border-bg-gray-50 grid grid-cols-1 gap-8 border-b-1 pb-4 md:grid-cols-3">
-        <!-- Left Section -->
+      <div
+        class="border-bg-gray-50 grid grid-cols-1 md:grid-cols-3 gap-6 border-b-1 pb-4 pr-12"
+      >
+        <!--footer left Section -->
         <div>
           <h3 class="mb-4 text-lg font-bold text-white">NFT Marketplace</h3>
-          <p class="text-sm">NFT marketplace UI created with Aatma for Figma. Join our community.</p>
+          <p class="text-sm">
+            NFT marketplace UI created with Aatma for Figma. Join our community.
+          </p>
           <div class="mt-4 flex gap-4">
             <img src="./images/icon-footer-1.png" alt="Twitter" />
             <img src="./images/icon-footer-2.png" alt="Facebook" />
@@ -158,8 +191,8 @@
             <img src="./images/icon-footer-4.png" alt="Twitter" />
           </div>
         </div>
-    
-        <!-- Center Section -->
+
+        <!-- footer center Section -->
         <div>
           <h3 class="mb-4 text-lg font-bold text-white">Explore</h3>
           <ul class="space-y-2">
@@ -168,16 +201,33 @@
             <li><a href="#" class="hover:underline">Connect a wallet</a></li>
           </ul>
         </div>
-    
-        <!-- Right Section -->
+
+        <!-- footer Right Section -->
         <div>
-          <h3 class="mb-4 text-lg font-bold text-white">Join Our Weekly Digest</h3>
-          <p class="mb-4 text-sm">Get exclusive promotions & updates straight to your inbox.</p>
-          <div class="relative w-4/5 items-center overflow-hidden rounded-full bg-white shadow-md">
-            <input type="email" placeholder="Enter your email here" class="py-3 pl-12  text-gray-700 outline-none" />
-            <button id="btn-1"  class="absolute right-0 visible  rounded-full bg-purple-500 px-6 py-3 font-semibold text-white hover:bg-purple-600 md:visible lg:visible">Subscribe</button>
+          <h3 class="mb-4 text-lg font-bold text-white">
+            Join Our Weekly Digest
+          </h3>
+          <p class="mb-4 text-sm">
+            Get exclusive promotions & updates straight to your inbox.
+          </p>
+          <div
+            class="relative w-full w-4/5 items-center overflow-hidden rounded-full bg-white shadow-md"
+          >
+            <input
+              type="email"
+              placeholder="Enter your email here"
+              class="py-3 pl-6 text-gray-700 outline-none"
+            />
+            <button
+              class="hidden md:inline-block absolute right-0 w-1/2 rounded-full bg-purple-500 px-10 py-3 font-bold text-white hover:bg-purple-600"
+            >
+              Subscribe
+            </button>
           </div>
-          <button class="lg-hidden my-6 w-full flex items-center justify-center gap-2 rounded-full bg-purple-500 px-6 py-4 font-semibold text-white hover:bg-purple-600 sm:visible md:hidden lg:visible">
+
+          <button
+            class="md:hidden lg:hidden my-6 w-full flex items-center justify-center gap-2 rounded-full bg-purple-500 px-6 py-4 font-semibold text-white hover:bg-purple-600 sm:visible md:hidden lg:visible"
+          >
             <img src="./images/EnvelopeSimple.png" class="ml-6" />
             Subscribe
           </button>
@@ -189,3 +239,5 @@
     </footer>
   </body>
 </html>
+
+
